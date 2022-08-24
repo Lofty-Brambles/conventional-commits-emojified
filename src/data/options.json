@@ -1,0 +1,69 @@
+{
+	"types": {
+		"feat": {
+			"description": "A new feature",
+			"emoji": "✨"
+		},
+		"fix": {
+			"description": "A bug fix",
+			"emoji": "🐛"
+		},
+		"docs": {
+			"description": "Documentation-based changes only",
+			"emoji": "📝"
+		},
+		"style": {
+			"description": "Changes, not effecting the workings or meaning of the code",
+			"emoji": "🎨"
+		},
+		"refactor": {
+			"description": "Changes, not adding features or fixing bugs",
+			"emoji": "♻"
+		},
+		"perf": {
+			"description": "Performance improving code-changes",
+			"emoji": "🚀"
+		},
+		"test": {
+			"description": "Adds missing tests or corrects existing tests",
+			"emoji": "🚨"
+		},
+		"build": {
+			"description": "Changes effecting builds or external dependencies",
+			"emoji": "🛠"
+		},
+		"ci": {
+			"description": "Changes to CI configurations or scripts",
+			"emoji": "⚙"
+		},
+		"chore": {
+			"description": "Changes that don't effect source or tests",
+			"emoji": "🔁"
+		},
+		"revert": {
+			"description": "Reverts previous commits",
+			"emoji": "🗑"
+		},
+		"removal": {
+			"description": "Removes files or features",
+			"emoji": "➖"
+		},
+		"prep": {
+			"description": "Adds code that is still under development",
+			"emoji": "🚧"
+		},
+		"merge": {
+			"description": "Merging branches",
+			"emoji": "🔀"
+		},
+		"assets": {
+			"description": "Adds or updates any type of assets",
+			"emoji": "🍱"
+		}
+	},
+	"period": false,
+	"type-case": ["CamelCase", "UPPER_CASE", "snake_case", "kebab-case"],
+	"scope-case": ["CamelCase", "UPPER_CASE", "snake_case", "kebab-case"],
+	"subject-case": [],
+	"max-message-length": 72
+}

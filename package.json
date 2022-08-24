@@ -1,0 +1,42 @@
+{
+  "name": "conventional-commits-emojified",
+  "version": "1.0.0",
+  "description": "A commit-formatter tool built to make sweet-looking commit messages :D Follows the [Angular commit-conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit) and [gitmojis](https://gitmoji.dev/) with more options",
+  "main": "./lib/index.js",
+  "type": "module",
+  "scripts": {
+	"test": "node ./dist/index.js",
+    "build": "tsc",
+	"dev": "npm run build && npm run test",
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lofty-Brambles/conventional-commits-emojified.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Lofty Brambles"
+  },
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Lofty-Brambles/conventional-commits-emojified/issues"
+  },
+  "homepage": "https://github.com/Lofty-Brambles/conventional-commits-emojified#readme",
+  "devDependencies": {
+    "@types/inquirer": "^9.0.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.7.4"
+  },
+  "files": [
+    "./bin/*",
+    "./lib/*"
+  ],
+  "typings": "./lib/index.d.ts",
+  "dependencies": {
+    "inquirer": "^9.1.0",
+    "nanospinner": "^1.1.0",
+    "simple-git": "^3.13.0"
+  }
+}
