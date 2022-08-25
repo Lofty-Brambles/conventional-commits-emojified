@@ -54,9 +54,10 @@ const main = async () => {
 	console.clear();
 	console.log(chalk.bold.underline.cyan("🎊 | Starting commit wizard | 🎊"));
 	const [pref, sc, imp, msg] = await getDetails();
-	await simpleGit().commit(
+	const res = await simpleGit().commit(
 		`${pref}${sc !== "" ? `(${sc})` : ""}${imp ? "!" : ""} | ${msg}`
 	);
+	console.log(res);
 };
 
 main();
