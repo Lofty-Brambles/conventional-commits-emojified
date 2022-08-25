@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import inquirer from "inquirer";
-import { createSpinner } from "nanospinner";
+// import { createSpinner } from "nanospinner";
 import simpleGit from "simple-git";
 import chalk from "chalk";
 import options from "./data/options.json" assert { type: "json" };
@@ -29,13 +29,15 @@ const getDetails = async () => {
 	const scope = await inquirer.prompt({
 		name: "scope",
 		type: "input",
-		message: `Please enter a commit scope, if none, press ↳ Enter to continue •`,
+		// prettier-ignore
+		message: `Please enter a ${chalk.underline("commit scope")}, if none, press ↳ Enter to continue •`,
 	});
 
 	const imp = await inquirer.prompt({
 		name: "important",
 		type: "confirm",
-		message: "Is this commit important or breaking? [ Default: No ] •",
+		// prettier-ignore
+		message: `Is this commit ${chalk.underline("important")} or breaking? [ Default: No ] •`,
 		default: false,
 	});
 
@@ -50,11 +52,11 @@ const getDetails = async () => {
 
 const main = async () => {
 	console.clear();
-	console.log();
-	const details = await getDetails();
-	const spinner = createSpinner("Saving your commit...").start();
-	await simpleGit().commit(details);
-	spinner.success();
+	console.log(chalk.bold.underline.cyan("🎊 | Starting commit wizard | 🎊"));
+	const [pref, sc, imp, msg] = await getDetails();
+	await simpleGit().commit(
+		`${pref}${sc !== "" ? `(${sc})` : ""}${imp ? "!" : ""} | ${msg}`
+	);
 };
 
 main();
