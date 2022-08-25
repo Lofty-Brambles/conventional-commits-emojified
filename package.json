@@ -1,8 +1,9 @@
 {
 	"name": "cty",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A commit-formatter tool built to make sweet-looking commit messages :D Follows the [Angular commit-conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit) and [gitmojis](https://gitmoji.dev/) with more options",
 	"main": "./dist/index.js",
+	"bin": "./dist/index.js",
 	"type": "module",
 	"scripts": {
 		"test": "node ./dist/index.js",
