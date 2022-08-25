@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import inquirer from "inquirer";
-// import { createSpinner } from "nanospinner";
+import { createSpinner } from "nanospinner";
 import simpleGit from "simple-git";
 import chalk from "chalk";
 import options from "./data/options.json" assert { type: "json" };
@@ -54,10 +54,28 @@ const main = async () => {
 	console.clear();
 	console.log(chalk.bold.underline.cyan("🎊 | Starting commit wizard | 🎊"));
 	const [pref, sc, imp, msg] = await getDetails();
-	const res = await simpleGit().commit(
-		`${pref}${sc !== "" ? `(${sc})` : ""}${imp ? "!" : ""} | ${msg}`
-	);
-	console.log(res);
+	const spinner = createSpinner("Starting to commit...").start();
+	try {
+		const res = await simpleGit().commit(
+			`${pref}${sc !== "" ? `(${sc})` : ""}${imp ? "!" : ""} | ${msg}`
+		);
+		const padding = Object.values(res.summary)
+			.map(ele => ele.toString().length)
+			.reduce((p, n) => Math.max(p, n));
+		spinner.success({
+			// prettier-ignore
+			text: `${chalk.bold("Commit successful!")}
+[ ${res.branch} ${res.commit.slice(0, 7)} ] ${pref}${sc !== "" ? `(${sc})` : ""}${imp ? "!" : ""} | ${msg}
+ • ${chalk.yellowBright(`${res.summary.changes.toString().padStart(padding)} files changed (↻)`)}
+ • ${chalk.green(`${res.summary.insertions.toString().padStart(padding)} insertions (+)`)}
+ • ${chalk.red(`${res.summary.deletions.toString().padStart(padding)} deletions (-)`)}`,
+		});
+	} catch (e) {
+		spinner.error({
+			text: `${chalk.red(`🧨 | Something bad happened...
+ • Either everything is up-to-date, or something went wrong with git.`)}`,
+		});
+	}
 };
 
 main();
