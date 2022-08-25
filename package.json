@@ -1,8 +1,8 @@
 {
-	"name": "conventional-commits-emojified",
+	"name": "cty",
 	"version": "1.0.0",
 	"description": "A commit-formatter tool built to make sweet-looking commit messages :D Follows the [Angular commit-conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit) and [gitmojis](https://gitmoji.dev/) with more options",
-	"main": "./lib/index.js",
+	"main": "./dist/index.js",
 	"type": "module",
 	"scripts": {
 		"test": "node ./dist/index.js",
