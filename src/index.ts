@@ -66,9 +66,9 @@ const main = async () => {
 			// prettier-ignore
 			text: `${chalk.bold("Commit successful!")}
 [ ${res.branch} ${res.commit.slice(0, 7)} ] ${pref}${sc !== "" ? `(${sc})` : ""}${imp ? "!" : ""} | ${msg}
- • ${chalk.yellowBright(`${res.summary.changes.toString().padStart(padding)} files changed (↻)`)}
- • ${chalk.green(`${res.summary.insertions.toString().padStart(padding)} insertions (+)`)}
- • ${chalk.red(`${res.summary.deletions.toString().padStart(padding)} deletions (-)`)}`,
+ • ${chalk.yellowBright(`${res.summary.changes.toString().padEnd(padding)} files changed (↻)`)}
+ • ${chalk.green(`${res.summary.insertions.toString().padEnd(padding)} insertions (+)`)}
+ • ${chalk.red(`${res.summary.deletions.toString().padEnd(padding)} deletions (-)`)}`,
 		});
 	} catch (e) {
 		spinner.error({
